@@ -1,0 +1,38 @@
+---
+title: title
+git: your_git_repository_here
+domain: yourdomain.com
+url:
+  development: http://yourdomain.com
+  stage: http://yourdomain.com
+  production: http://yourdomain.com
+ssh:
+  stage:
+    server: server
+    user: user
+    port: port
+    path: path
+  production:
+    server: server
+    user: user
+    port: port
+    path: path
+database:
+  development:
+    name: name
+    user: user
+    pass: password
+  stage:
+    name: name
+    user: user
+    pass: password
+  production:
+    name: name
+    user: user
+    pass: password
+new_relic:
+  key:
+  app_id:
+slack:
+  url:
+  channel:

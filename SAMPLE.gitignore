@@ -1,0 +1,12 @@
+.DS_Store
+.sass-cache
+.htaccess
+debug.log
+local-config.php
+wp-config.php
+config.yaml
+wp-content/uploads
+wp-content/upgrade
+wp-content/blogs.dir/
+wp-content/debug.log
+wp-content/cache
