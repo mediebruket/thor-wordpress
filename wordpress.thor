@@ -141,7 +141,7 @@ module Wp
 
     desc "theme", "Download and install Mediebruket Starter Theme"
     def theme
-      run "cd wp-content/themes && git clone git@bitbucket.org:mediebruket/mb-starter-theme.git"
+      run "cd wp-content/themes && git clone git@github.com:mediebruket/mb-starter-theme.git"
       run "rm -rf wp-content/themes/mb-starter-theme/.git"
     end
 
@@ -440,7 +440,7 @@ module Wp
         say "Skipping #{destination} because it already exists", :yellow
       else
         wp_dir = options[:dir]
-        config = open("https://bitbucket.org/mediebruket/thor-wordpress/raw/master/SAMPLE.config.yaml") { |f| f.read }
+        config = open("https://github.com/mediebruket/thor-wordpress/raw/master/SAMPLE.config.yaml") { |f| f.read }
 
         # write file
         create_file destination, config
@@ -452,7 +452,7 @@ module Wp
     def gitignore
       wp_dir = options[:dir]
       destination = wp_dir + "/.gitignore"
-      gitignore = open("https://bitbucket.org/mediebruket/thor-wordpress/raw/master/SAMPLE.gitignore") { |f| f.read }
+      gitignore = open("https://github.com/mediebruket/thor-wordpress/raw/master/SAMPLE.gitignore") { |f| f.read }
 
       # write file
       create_file destination, gitignore
@@ -463,7 +463,7 @@ module Wp
     def new_relic
       wp_dir = options[:dir]
       destination = wp_dir + "/wp-content/mu-plugins/new_relic.php"
-      new_relic = open("https://bitbucket.org/mediebruket/thor-wordpress/raw/master/SAMPLE.new_relic.php") { |f| f.read }
+      new_relic = open("https://github.com/mediebruket/thor-wordpress/raw/master/SAMPLE.new_relic.php") { |f| f.read }
 
       # write file
       create_file destination, new_relic
@@ -474,7 +474,7 @@ module Wp
     def wp_config
       wp_dir = options[:dir]
       destination = wp_dir + "/wp-config.php"
-      wp_config = open("https://bitbucket.org/mediebruket/thor-wordpress/raw/master/SAMPLE.wp-config.php") { |f| f.read }
+      wp_config = open("https://github.com/mediebruket/thor-wordpress/raw/master/SAMPLE.wp-config.php") { |f| f.read }
 
       # random salts
       wp_config = wp_config.gsub!(/put_your_unique_phrase_here/) { |m| SecureRandom.urlsafe_base64(64) }
@@ -490,7 +490,7 @@ module Wp
       config = Wp::get_config
       destination = "local-config.php"
 
-      local_config = open("https://bitbucket.org/mediebruket/thor-wordpress/raw/master/SAMPLE.local-config.php") { |f| f.read }
+      local_config = open("https://github.com/mediebruket/thor-wordpress/raw/master/SAMPLE.local-config.php") { |f| f.read }
 
       # replace strings
       local_config.gsub!(/dbname/, config[:database][env][:name])
