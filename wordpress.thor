@@ -186,7 +186,7 @@ module Wp
       tempfile = "#{config[:database][from][:name]}-#{random}.sql"
 
       # dump
-      cmd = "-u #{config[:database][from][:user]} -h localhost -p#{config[:database][from][:pass]} #{config[:database][from][:name]} > /tmp/#{tempfile}"
+      cmd = "--single-transaction -u #{config[:database][from][:user]} -h localhost -p#{config[:database][from][:pass]} #{config[:database][from][:name]} > /tmp/#{tempfile}"
       if from == 'stage' || from == 'production'
         on from_host do |host|
           within config[:ssh][from][:path] do
