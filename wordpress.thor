@@ -358,12 +358,6 @@ module Wp
           execute :bash, "/usr/local/sbin/fixperms.sh #{config[:ssh][env][:path]}"
           execute :git, "checkout #{target}"
 
-          # block search engines in environments other than production
-          if env == "stage"
-            block_path = path + '../conf/nginx'
-            execute :bash, "/usr/local/sbin/fixconfig.sh #{block_path}"
-          end
-
           # make site visible if blog_public is true or doesn't exist
           if env == "production"
             if not config.has_key?(:blog_public) or config[:blog_public]
